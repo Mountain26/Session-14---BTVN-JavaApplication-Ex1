@@ -1,12 +1,13 @@
-package javaweb_session14.ex1;
+package org.example.bt2504;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EcommercePaymentApplication {
+public class BT2504Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(EcommercePaymentApplication.class, args);
+        SpringApplication.run(BT2504Application.class, args);
     }
+
 }

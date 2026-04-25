@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Todo List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Todo App</h2>
+        <a class="btn btn-primary" th:href="@{/form}">Thêm công việc</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="mb-3">Danh sách công việc</h5>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nội dung</th>
+                    <th>Hạn</th>
+                    <th>Trạng thái</th>
+                    <th>Ưu tiên</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(todos)}">
+                    <td colspan="5" class="text-center text-muted">Chưa có công việc nào</td>
+                </tr>
+                <tr th:each="t : ${todos}">
+                    <td th:text="${t.id}"></td>
+                    <td th:text="${t.content}"></td>
+                    <td th:text="${t.dueDate}"></td>
+                    <td>
+                        <span th:if="${t.status == 'PENDING'}">PENDING</span>
+                        <span th:if="${t.status == 'DONE'}">DONE</span>
+                    </td>
+                    <td>
+                        <span th:if="${t.priority == 'LOW'}">LOW</span>
+                        <span th:if="${t.priority == 'MEDIUM'}">MEDIUM</span>
+                        <span th:if="${t.priority == 'HIGH'}">HIGH</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
